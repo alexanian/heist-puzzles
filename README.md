@@ -19,7 +19,7 @@ The `testResistorEvents` HTML page allows you to see the results of the `beamSta
 
 A puzzle for those who have always wanted to "hack the mainframe" to disable a "security system".
 
-## Setting up smartphone cameras
+### Setting up smartphone cameras
 
 The system is currently configured for a single camera, though we'll want three in the final game.
 
@@ -29,7 +29,7 @@ Smartphones](https://www.makeuseof.com/tag/how-to-build-a-security-camera-networ
 We installed BL-IP on an old smartphone and it began streaming video to an IP address configured
 in the app, henceforth referred to as `YOUR_CAMERA_IP`.
 
-### Checking that the camera is streaming
+#### Checking that the camera is streaming
 
 The BL-IP app makes available its current frame at `<YOUR_CAMERA_IP>/camera.jpg`. Test audio and
 video streams can be viewed at `http://<YOUR_CAMERA_IP>/jpeg-browser.html`.
