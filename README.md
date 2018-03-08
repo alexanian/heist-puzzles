@@ -12,7 +12,8 @@ You will need to enter the access token of your Particle device in a file `./las
 var accessToken = 'YOUR_ACCESS_TOKEN';
 ```
 
-The `testResistorEvents` HTML page allows you to see the results of the `beamStatus` event in the browser.
+The `testResistorEvents` HTML page allows you to see the results of the `beamStatus` event in the
+browser.
 
 
 ## Camera Hacker
@@ -34,5 +35,6 @@ in the app, henceforth referred to as `YOUR_CAMERA_IP`.
 The BL-IP app makes available its current frame at `<YOUR_CAMERA_IP>/camera.jpg`. Test audio and
 video streams can be viewed at `http://<YOUR_CAMERA_IP>/jpeg-browser.html`.
 
-The [example webpage](./camera-hacker/raw_js_video_example.html) shows how to display the video stream
-on an HTML page using raw javascript.
+The [example webpage](./camera-hacker/raw_js_video_example.html) shows how to display the video
+stream on an HTML page using raw javascript. The example assumes that `<YOUR_CAMERA_IP>` is
+`192.168.1.116` (the default).
