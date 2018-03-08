@@ -1,0 +1,35 @@
+<!DOCTYPE>
+<html>
+  <head>
+	  <script>
+		var cameraImageId = 'cameraImage';
+		var timeout = 50; // milliseconds
+	  
+		function reloadImage(imageId) {
+			var img = document.getElementById(imageId);
+			
+			// True when image has loaded
+			if (img.complete) {
+				var src = img.src;
+				
+				// Remove existing query arguments from source
+				var queryPos = src.indexOf('?');
+				if (queryPos >= 0) {
+					src = src.substr(0, queryPos);
+				}
+				
+				// Set new query argument to current time
+				var date = new Date();
+				img.src = src + '?time=' + date.getTime();
+			}
+		}
+		
+		function loadImage() {
+			setTimeout(function () { reloadImage(cameraImageId); }, 50);
+		}
+	  </script>
+  </head>
+  <body>
+	<p><img src="http://192.168.1.116:8080/camera.jpg" alt="Test Camera from BL IP-Camera" id="cameraImage" onload="loadImage()"></p>
+  </body>
+</html>
