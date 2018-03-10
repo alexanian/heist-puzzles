@@ -1,3 +1,4 @@
 secret*
 .idea/
 /camera-hacker/venv/
+__pycache__/

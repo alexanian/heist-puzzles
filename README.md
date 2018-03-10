@@ -26,6 +26,10 @@ A puzzle for those who have always wanted to "hack the mainframe" to disable a "
 * Activate the virtual environment with `. venv/bin/activate`
 * Install packages with `pip install -r requirements.txt`
 
+### Running the server
+* For develop, `python server.py` (with venv enabled) will do ya
+* To see it beyond your local machine
+
 
 ### Setting up smartphone cameras
 
