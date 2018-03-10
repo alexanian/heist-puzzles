@@ -28,8 +28,8 @@ A puzzle for those who have always wanted to "hack the mainframe" to disable a "
 
 ### Running the server
 * For develop, `python server.py` (with venv enabled) will do ya
-* To see it beyond your local machine
-
+* To see it beyond your local machine, you're going to want to change the IP in Config.Server to
+  0.0.0.0
 
 ### Setting up smartphone cameras
 
@@ -45,7 +45,3 @@ in the app, henceforth referred to as `YOUR_CAMERA_IP`.
 
 The BL-IP app makes available its current frame at `<YOUR_CAMERA_IP>/camera.jpg`. Test audio and
 video streams can be viewed at `http://<YOUR_CAMERA_IP>/jpeg-browser.html`.
-
-The [example webpage](./camera-hacker/raw_js_video_example.html) shows how to display the video
-stream on an HTML page using raw javascript. The example assumes that `<YOUR_CAMERA_IP>` is
-`192.168.1.116` (the default).
