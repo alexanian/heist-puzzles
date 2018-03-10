@@ -20,6 +20,13 @@ browser.
 
 A puzzle for those who have always wanted to "hack the mainframe" to disable a "security system".
 
+### Installing
+* Install Python 3.5
+* Create a virtual environment in the project folder with `virtualenv -p python3 venv`
+* Activate the virtual environment with `. venv/bin/activate`
+* Install packages with `pip install -r requirements.txt`
+
+
 ### Setting up smartphone cameras
 
 The system is currently configured for a single camera, though we'll want three in the final game.
