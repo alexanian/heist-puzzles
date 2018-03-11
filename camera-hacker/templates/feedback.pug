@@ -1,0 +1,27 @@
+doctype html
+html
+    head
+        script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js")
+        script(src="{{ url_for('static', filename='app.js') }}")
+        title="It's Already Perfect Though"
+        meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+        body(ng-app="app")
+            script(src="{{ url_for('static', filename='controllers/feedback.js') }}")
+            div(ng-controller="login")
+                h1 Feedback Form
+
+                form()
+                    label(for='fb') Please enter any questions, comments, or concerns
+                    input(type="text"
+                        id="passwd"
+                        ng-model="formData.feedback"
+                        placeholder="Please enter feedback"
+                        style="display:inherit;width:500px;margin-top:12px")
+
+                    button(type="submit" ng-click="feedback()"
+                        style="max-width:60px;margin-top:24px") Submit
+                p(ng-if="error") {!error!}
+                p(ng-if="message") {!message!}
+
+                p
+                    a(href="/login") Login

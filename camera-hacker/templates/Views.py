@@ -19,7 +19,7 @@ def landing():
     else:
         return redirect('/login')
 
-#
-# @Views.route('/feedback')
-# def feedback():
-#     return render_template('feedback.pug')
+
+@Views.route('/feedback')
+def feedback():
+    return render_template('feedback.pug')
