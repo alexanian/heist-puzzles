@@ -13,6 +13,7 @@ const int switches[numSwitches] = { D0, D1, D2 };
 // Each photoresistor detects the prescence or absence of a laser
 const int numLasers = 5;
 const int photoresistors[numLasers] = { A0, A1, A2, A3, A4 };
+const int laserSwitches[numLasers] = { D0, D1, D1, D2, D2 }; // some are doubled up
 int beamThresholds[numLasers];
 
 // Controlling TIME
@@ -36,10 +37,6 @@ void setup() {
 }
 
 void loop() {
-    char timeString[40];
-    sprintf(timeString, "time since blink: %d", timeSinceBlink);
-    Particle.publish("timeSinceBlink",timeString,60,PRIVATE);
-    
     publishResistorReadings();
     
     if (timeSinceBlink >= blinkPeriod) {
@@ -51,16 +48,14 @@ void loop() {
         Particle.publish("alert","beam is broken!",60,PRIVATE);
     }
 
-    digitalWrite(led, LOW);
-
     timeSinceBlink += loopTime;
     delay(loopTime);
-    digitalWrite(led, HIGH);
 }
 
 
 /**
   Right now, set the beam threshold for all lasers at 3800.
+  This could be fancier... eventually.
  */
 int calibrateResistor(int pin) {
     return 3800;
@@ -72,12 +67,22 @@ int calibrateResistor(int pin) {
 bool isBeamBroken() {
     bool isBeamBroken = false;
 	for (int ii = 0; ii < 1; ii++) {
+	    if (laserSwitchedOff(ii)) continue;
+	    
 	    int beamValue = analogRead(photoresistors[ii]);
 	    isBeamBroken = isBeamBroken || beamValue < beamThresholds[ii]; 
 	}
 	return isBeamBroken;
 }
 
+
+/**
+  Return true if the switch controlling the laser is off.
+*/
+bool laserSwitchedOff(int laserNumber)
+{
+    return !digitalRead(laserSwitches[laserNumber]);
+}
 
 /**
   Toggles a pin value between low and high.
