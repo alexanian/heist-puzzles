@@ -5,12 +5,14 @@ block content
     div(ng-controller="feed")
         div(style='display:flex;flex-direction:column;flex-wrap:wrap;justify-content:flex-start')
             each ip, ix in cameras
-                p
+                div
+                    p Camera #{ix}
                     // PLEASE FOR THE LOVE OF GOD DON'T MOVE THESE ONTO THE SAME LINE
                         THE UNHOLY GODS FOR THE UNHOLY STACK OF TECHNOLOGY I'M USING TO MAKE THIS
                         ALL WORK DO _NOT_ APPRECIATE IT. FROM TRIAL AND ERROR, I CAN SAY THAT
                         EVERYTHING GOES TO SHIT AS SOON AS IT DETECTS TWO CURLY BRACES ON THE SAME
                         LINE >:(
+
                     img(id="cameraImage#{ix}"
                         src="#{ip}/camera.jpg"
                         sb-load="loadImage('cameraImage#{ix}')")
