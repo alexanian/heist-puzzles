@@ -1,21 +1,16 @@
-doctype html
-html
-    head
-        script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js")
-        script(src="{{ url_for('static', filename='app.js') }}")
-        title='Acme Security Co Camera Monitoring'
-        meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
-        body(ng-app="app")
-            script(src="{{ url_for('static', filename='controllers/feed.js') }}")
-            div(ng-controller="feed")
-                div(style='display:flex;flex-direction:column;flex-wrap:wrap;justify-content:flex-start')
-                    each ip, ix in cameras
-                        p
-                            // PLEASE FOR THE LOVE OF GOD DON'T MOVE THESE ONTO THE SAME LINE
-                                THE UNHOLY GODS FOR THE UNHOLY STACK OF TECHNOLOGY I'M USING TO MAKE THIS
-                                ALL WORK DO _NOT_ APPRECIATE IT. FROM TRIAL AND ERROR, I CAN SAY THAT
-                                EVERYTHING GOES TO SHIT AS SOON AS IT DETECTS TWO CURLY BRACES ON THE SAME
-                                LINE >:(
-                            img(id="cameraImage#{ix}"
-                                src="#{ip}/camera.jpg"
-                                sb-load="loadImage('cameraImage#{ix}')")
+extends header
+
+block content
+    script(src="{{ url_for('static', filename='controllers/feed.js') }}")
+    div(ng-controller="feed")
+        div(style='display:flex;flex-direction:column;flex-wrap:wrap;justify-content:flex-start')
+            each ip, ix in cameras
+                p
+                    // PLEASE FOR THE LOVE OF GOD DON'T MOVE THESE ONTO THE SAME LINE
+                        THE UNHOLY GODS FOR THE UNHOLY STACK OF TECHNOLOGY I'M USING TO MAKE THIS
+                        ALL WORK DO _NOT_ APPRECIATE IT. FROM TRIAL AND ERROR, I CAN SAY THAT
+                        EVERYTHING GOES TO SHIT AS SOON AS IT DETECTS TWO CURLY BRACES ON THE SAME
+                        LINE >:(
+                    img(id="cameraImage#{ix}"
+                        src="#{ip}/camera.jpg"
+                        sb-load="loadImage('cameraImage#{ix}')")
