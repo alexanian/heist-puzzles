@@ -1,6 +1,8 @@
+doctype html
 html
     head
         script(src="{{url_for('static', filename='videoScript.js')}}" type="text/javascript")
+        title='Acme Security Co Camera Monitoring'
     body
         div(style='display:flex;flex-direction:column;flex-wrap:wrap;justify-content:flex-start')
             each ip, ix in cameras
