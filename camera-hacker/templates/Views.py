@@ -9,7 +9,7 @@ Views = Blueprint('views', __name__)
 @Views.route('/login')
 def login():
     return render_template('login.pug')
-#
+
 
 @Views.route('/feed')
 def landing():

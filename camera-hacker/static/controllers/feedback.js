@@ -1,4 +1,4 @@
-app.controller('login', ['$scope', '$http', '$window', function($scope, $http, $window) {
+app.controller('login', ['$scope', '$http', '$sce', function($scope, $http, $sce) {
     $scope.formData = {
         feedback: null
     };
@@ -10,6 +10,7 @@ app.controller('login', ['$scope', '$http', '$window', function($scope, $http, $
         $scope.error = null;
         $http.post('/api/feedback', $scope.formData).then(function (data) {
             $scope.message = data.data.message;
+            $scope.message = $sce.trustAsHtml($scope.message);
         }).catch(function(err) {
             $scope.error = err;
         });

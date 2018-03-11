@@ -1,9 +1,8 @@
-doctype html
-html
-    head
-        script(src="{{url_for('static', filename='videoScript.js')}}" type="text/javascript")
-        title='Acme Security Co Camera Monitoring'
-    body
+extends header
+
+block content
+    script(src="{{ url_for('static', filename='controllers/feed.js') }}")
+    div(ng-controller="feed")
         div(style='display:flex;flex-direction:column;flex-wrap:wrap;justify-content:flex-start')
             each ip, ix in cameras
                 p
@@ -14,4 +13,4 @@ html
                         LINE >:(
                     img(id="cameraImage#{ix}"
                         src="#{ip}/camera.jpg"
-                        onload="loadImage('cameraImage#{ix}')")
+                        sb-load="loadImage('cameraImage#{ix}')")
