@@ -23,7 +23,6 @@ def feedback():
     body = loads(request.data.decode(charset))
     if body['feedback'] and ';' in body['feedback']:
         VARIABLES["camera_frozen"] = not VARIABLES["camera_frozen"]
-        print(VARIABLES)
         return jsonify({"message": "l33t h4xor"}), 200
     else:
         return jsonify({"message": "Thank you for your feedback"}), 200
