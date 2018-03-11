@@ -45,3 +45,9 @@ in the app, henceforth referred to as `YOUR_CAMERA_IP`.
 
 The BL-IP app makes available its current frame at `<YOUR_CAMERA_IP>/camera.jpg`. Test audio and
 video streams can be viewed at `http://<YOUR_CAMERA_IP>/jpeg-browser.html`.
+
+
+### Accessing the server
+You can see the login page at `localhost:8080/login`. To access the feeds, enter the username and
+password found in the Security configuration. If you go to /feeds without this, you'll be kicked
+back to login. 
