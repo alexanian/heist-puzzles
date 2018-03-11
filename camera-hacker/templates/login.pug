@@ -1,0 +1,28 @@
+doctype html
+html
+    head
+        script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js")
+        script(src="{{ url_for('static', filename='app.js') }}")
+        title='Acme Security Co Camera Monitoring'
+        meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+        body(ng-app="app")
+            script(src="{{ url_for('static', filename='controllers/login.js') }}")
+            div(ng-controller="login")
+                h1 Login
+
+                form(style="display:flex;justify-content:space-between;flex-wrap:wrap;flex-direction:column;max-width:300px;mix-height:200px;")
+                    label(for='uname') Username
+                    input(type="text"
+                        id="uname"
+                        ng-model="formData.user"
+                        placeholder="Please enter name")
+
+                    label(for='passwd') Password
+                    input(type="password"
+                        id="passwd"
+                        ng-model="formData.password"
+                        placeholder="Please enter password")
+
+                    button(type="submit" ng-click="login()"
+                        style="max-width:60px;margin-top:24px") Login
+                p(ng-if="error") {!error!}
