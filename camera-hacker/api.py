@@ -37,9 +37,9 @@ def feedback():
             message = RESPONSES['rm']
         elif 'sudo' in hax or 'apt' in hax:
             message = RESPONSES['sudo']
-        elif ('cat' in hax or 'vi' in hax or 'nano' in 'hax') and 'instructions.txt' in hax:
+        elif ('cat' in hax or 'vi' in hax or 'nano' in hax) and 'instructions.txt' in hax:
             message = RESPONSES['cat']
-        elif ('cat' in hax or 'vi' in hax or 'nano' in 'hax') in hax and 'options' in hax \
+        elif ('cat' in hax or 'vi' in hax or 'nano' in hax) in hax and 'options' in hax \
                 and 'Config' in hax and 'rm' not in hax:
             message = RESPONSES['cat-config']
         elif 'rm Config/options.json;cat {frozen: true} > Config/options.json' in hax:
