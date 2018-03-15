@@ -11,9 +11,9 @@ const int numSwitches = 3;
 const int switches[numSwitches] = { D0, D1, D2 };
 
 // Each photoresistor detects the prescence or absence of a laser
-const int numLasers = 2;//5;
-const int photoresistors[numLasers] = { A0, A1 };//, A2, A3, A4 };
-const int laserSwitches[numLasers] = { D0, D1 };//, D1, D2, D2 }; // some are doubled up
+const int numLasers = 4;
+const int photoresistors[numLasers] = { A0, A1, A2, A3 };
+const int laserSwitches[numLasers] = { D2, D1, D2, D1 }; // some are doubled up
 int beamThresholds[numLasers];
 
 // Controlling TIME
@@ -41,17 +41,20 @@ void setup() {
     Particle.publish("beamThreshold", publishString, 60, PRIVATE);
 	
 	togglePin(switches[2]);
+	togglePin(switches[1]);
+    togglePin(switches[0]);
 }
 
 void loop() {
-    publishResistorReadings();
-    
     if(isBeamBroken()) {
+        publishResistorReadings();
         Particle.publish("alert","beam is broken!",60,PRIVATE);
     }
     else if (timeSinceBlink >= blinkPeriod) {
+        publishResistorReadings();
         togglePin(switches[2]);
     	togglePin(switches[1]);
+    	togglePin(switches[0]);
         timeSinceBlink = 0;
     }
     
@@ -59,6 +62,22 @@ void loop() {
     delay(loopTime);
 }
 
+
+/**
+  Toggles a pin value between low and high.
+  
+  @param pin integer id of the pin to be toggled.
+*/
+void togglePin(int pin) {
+    bool isPinHigh = digitalRead(pin);
+    
+    if (isPinHigh) {
+        digitalWrite(pin,LOW);
+    }
+    else {
+        digitalWrite(pin,HIGH);
+    }
+}
 
 /**
   Calibrate photoresistors- necessary because ambient light levels change.
@@ -110,22 +129,6 @@ bool isBeamBroken() {
 bool laserSwitchedOff(int laserNumber)
 {
     return !digitalRead(laserSwitches[laserNumber]);
-}
-
-/**
-  Toggles a pin value between low and high.
-  
-  @param pin integer id of the pin to be toggled.
-*/
-void togglePin(int pin) {
-    bool isPinHigh = digitalRead(pin);
-    
-    if (isPinHigh) {
-        digitalWrite(pin,LOW);
-    }
-    else {
-        digitalWrite(pin,HIGH);
-    }
 }
 
 /**
