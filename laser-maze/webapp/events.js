@@ -4,13 +4,7 @@
 function start() {
     var eventSource = new EventSource("https://api.spark.io/v1/devices/events/?access_token=" + accessToken);
 
-    eventSource.addEventListener('open', function(e) {
-        console.log("Opened!"); },false);
-     
-    eventSource.addEventListener('error', function(e) {
-        console.log("Errored!"); },false);
-     
-    eventSource.addEventListener('beamStatus', function(e) {
+    eventSource.addEventListener('alert', function(e) {
         var parsedData = JSON.parse(e.data);
         var tempSpan = document.getElementById("status");
         tempSpan.innerHTML = "Status: " + parsedData.data;
