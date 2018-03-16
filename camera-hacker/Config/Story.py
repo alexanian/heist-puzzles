@@ -12,7 +12,7 @@ RESPONSES = {
     "else": "Command not found. Try running sudo apt-get install to get it.",
     "sudo": "Feature currently disabled",
     "cat-config": "{{frozen: {}}}".format({0: 'false', 1: 'true'}[VARIABLES['camera_frozen']]),
-    "cat": "Bobby how many times do I need to tell you these things! " +
+    "cat": "Reg how many times do I need to tell you these things! " +
     "Your username is {u} and your password is {p}. ".format(u=USER, p=PASSWD) +
     "If you want to pause the cameras so your boss can't see whatever it is you and your boyfriend" +
     " get up to when he isn't around, you need to go to the terminal window and type: " +

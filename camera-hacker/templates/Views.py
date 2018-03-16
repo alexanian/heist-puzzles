@@ -5,6 +5,10 @@ from Config.Security import TOKEN
 
 Views = Blueprint('views', __name__)
 
+@Views.route('/')
+def login_indirect():
+    return render_template('login.pug')
+
 
 @Views.route('/login')
 def login():

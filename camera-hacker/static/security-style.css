@@ -9,6 +9,7 @@ div {
 input {
     font-family: 'Press Start 2P', sans-serif;
     font-size: 0.6em;
+    color: grey;
     padding: 0.5em;
     border: 3px black solid;
     min-width: 35em;
@@ -39,4 +40,8 @@ h1,h2 {
 }
 .logo {
     width: 600px;
+}
+.message-text {
+    font-family: sans-serif;
+    line-height: 1.5em;
 }

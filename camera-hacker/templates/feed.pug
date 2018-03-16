@@ -2,8 +2,12 @@ extends header
 
 block content
     script(src="{{ url_for('static', filename='controllers/feed.js') }}")
-    div(ng-controller="feed")
-        div(style='display:flex;flex-direction:column;flex-wrap:wrap;justify-content:flex-start')
+    div(ng-controller="feed"
+        class="container")
+        h2 Panopticon Surveillance
+        img(src="{{ url_for('static', filename='logo.png') }}"
+            class="logo")
+        div
             each ip, ix in cameras
                 div
                     p Camera #{ix}
