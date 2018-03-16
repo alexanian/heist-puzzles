@@ -23,31 +23,13 @@ button:hover {
     text-align: center;
     width: 800px;
 }
-h1, #alert-text {
+h1,h2 {
     font-weight: normal;
     text-transform: uppercase;
-}
-#alert-text {
-    font-size: 5em;
 }
 .info {
     font-size: 0.8em;
 }
 .logo {
     width: 600px;
-}
-.flashing {
-    color:#d10055;
-    -webkit-animation: flash linear 1s infinite;
-    animation: flash linear 1s infinite;
-}
-@-webkit-keyframes flash {
-	0% { opacity: 1; } 
-	50% { opacity: .1; } 
-	100% { opacity: 1; }
-}
-@keyframes flash {
-	0% { opacity: 1; } 
-	50% { opacity: .1; } 
-	100% { opacity: 1; }
 }
