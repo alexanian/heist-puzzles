@@ -9,22 +9,24 @@ block content
             class="logo")
         h1 Login
 
-        form(style="display:flex;justify-content:space-between;flex-wrap:wrap;flex-direction:column;max-width:300px;mix-height:200px;")
-            label(for='uname') Username
-            input(type="text"
-                id="uname"
-                ng-model="formData.user"
-                placeholder="Please enter name")
+        form
+            p
+                label(for='uname') Username
+                input(type="text"
+                    id="uname"
+                    ng-model="formData.user"
+                    placeholder="Please enter name")
 
-        label(for='passwd') Password
-        input(type="password"
-            id="passwd"
-            ng-model="formData.password"
-            placeholder="Please enter password")
+            p
+                label(for='passwd') Password
+                input(type="password"
+                    id="passwd"
+                    ng-model="formData.password"
+                    placeholder="Please enter password")
 
-        p
-            button(type="submit" ng-click="login()") Login
-        p(ng-if="error") {!error!}
+            p
+                button(type="submit" ng-click="login()") Login
+            p(ng-if="error") {!error!}
 
         p(class="info")
             a(href="/feedback") Provide Feedback
