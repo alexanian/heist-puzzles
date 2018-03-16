@@ -1,0 +1,53 @@
+/* Main CSS */
+body {
+    font-family: 'Press Start 2P', sans-serif;
+    width: 100%;
+}
+div {
+    margin-top: 50px;
+}
+button {
+    font-family: 'Press Start 2P', sans-serif;
+    padding: 1em;
+    border: 4px black solid;
+    color: white;
+    background-color: black;
+    text-transform: uppercase;
+}
+button:hover {
+    background-color: #d10055;
+}
+#container {
+    padding: 50px;
+    margin: 50 auto;
+    text-align: center;
+    width: 800px;
+}
+h1, #alert-text {
+    font-weight: normal;
+    text-transform: uppercase;
+}
+#alert-text {
+    font-size: 5em;
+}
+.info {
+    font-size: 0.8em;
+}
+.logo {
+    width: 600px;
+}
+.flashing {
+    color:#d10055;
+    -webkit-animation: flash linear 1s infinite;
+    animation: flash linear 1s infinite;
+}
+@-webkit-keyframes flash {
+	0% { opacity: 1; } 
+	50% { opacity: .1; } 
+	100% { opacity: 1; }
+}
+@keyframes flash {
+	0% { opacity: 1; } 
+	50% { opacity: .1; } 
+	100% { opacity: 1; }
+}

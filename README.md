@@ -2,18 +2,18 @@
 
 Code for several electronic puzzles created for an interactive heist game.
 
-## Laser Maze
+## The Vault
 
 This presently assumes you have a Particle Photon device connected up as in the [Motion Detector
 Code Example](https://docs.particle.io/guide/getting-started/examples/photon/#make-a-motion-detector-publish-and-the-console).
 
-You will need to enter the access token of your Particle device in a file `./laser-maze/secrets.js`:
+You will need to enter the access token of your Particle device in a file `./the-vault/security-frontend/secrets.js`:
 ```
 var accessToken = 'YOUR_ACCESS_TOKEN';
+var deviceId = 'YOUR_DEVICE_ID';
 ```
 
-The `testResistorEvents` HTML page allows you to see the results of the `beamStatus` event in the
-browser.
+The HTML page provides a security interface that responds to "alert" events in the browser.
 
 
 ## Camera Hacker

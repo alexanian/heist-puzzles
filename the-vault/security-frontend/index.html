@@ -1,0 +1,24 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Roboto" rel="stylesheet">
+    <link href="./main.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type "text/javascript" src="./secrets.js"></script>
+    <script type="text/javascript" src="./events.js"></script>
+  </head>
+  <body>
+    <div id="container">
+        <img src="./logo.png" class="logo"/>
+        <h1>Panopticon Surveillance</h1>
+        <div>
+            <div id="alert-text">No active alerts.</div>
+            <div class="info">It has been <span id="time-since-breach">unknown</span> since the last security breach.</div>
+            <div class="info">System is <span id="is-active">not connected</span>.</div>
+        </div>
+        <div id="controls">
+            <button onclick="reset()">Reset system</button>
+        </div>
+    </div>
+  </body>
+</html>
