@@ -1,13 +1,21 @@
 <!DOCTYPE>
 <html>
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
+    <link href="./main.css" rel="text/css" />
     <script type "text/javascript" src="./secrets.js"></script>
     <script type="text/javascript" src="./events.js"></script>
   </head>
   <body>
-    <span id="status">None!</span><br>
-    <span id="ts">Never!</span>
-    <br><br>
-    <button onclick="start()">Connect</button>
+    <img src="" class="logo"/>
+    <h1>Panopticon Surveillance</h1>
+    <div>
+        <div id="alert-text" >No active warnings.</div>
+        <div id="alert-time" class="">It has been <span>time</span> since the last security breach.</div>
+    </div>
+    <div id="controls">
+      <button onclick="start()">Connect system</button>
+      <button onclick="reset()">Reset system</button>
+    </div>
   </body>
 </html>
