@@ -11,6 +11,7 @@ var eventsURL = "https://api.spark.io/v1/devices/events/?access_token=" + access
 
 // Begin monitoring the event sources and updating the timespace
 $(document).ready( function() {
+
     // Set up events
     var eventSource = new EventSource(eventsURL);
     eventSource.addEventListener('alert', function (e) {
@@ -37,7 +38,13 @@ function reset() {
         
         secondsSinceAlert = 0;
         setTime();
-    });      
+    });
+
+    // Set up events
+    var eventSource = new EventSource(eventsURL);
+    eventSource.addEventListener('alert', function (e) {
+        alert();
+    }, false);    
 }
 
 function setTime() {
