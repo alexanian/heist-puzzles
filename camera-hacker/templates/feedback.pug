@@ -1,0 +1,22 @@
+extends header
+
+block content
+    script(src="{{ url_for('static', filename='controllers/feedback.js') }}")
+    div(ng-controller="login")
+        h1 Feedback Form
+
+        form()
+            label(for='fb') Please enter any questions, comments, or concerns
+            input(type="text"
+                id="passwd"
+                ng-model="formData.feedback"
+                placeholder="Please enter feedback"
+                style="display:inherit;width:500px;margin-top:12px")
+
+            button(type="submit" ng-click="feedback()"
+                style="max-width:60px;margin-top:24px") Submit
+        p(ng-if="error") {!error!}
+        p(ng-if="message") {!message!}
+
+        p
+            a(href="/login") Login
