@@ -6,6 +6,14 @@ body {
 div {
     margin-top: 50px;
 }
+input {
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 0.6em;
+    color: grey;
+    padding: 0.5em;
+    border: 3px black solid;
+    min-width: 35em;
+}
 button {
     font-family: 'Press Start 2P', sans-serif;
     padding: 1em;
@@ -23,12 +31,9 @@ button:hover {
     text-align: center;
     width: 800px;
 }
-h1, #alert-text {
+h1,h2 {
     font-weight: normal;
     text-transform: uppercase;
-}
-#alert-text {
-    font-size: 5em;
 }
 .info {
     font-size: 0.8em;
@@ -36,18 +41,7 @@ h1, #alert-text {
 .logo {
     width: 600px;
 }
-.flashing {
-    color:#d10055;
-    -webkit-animation: flash linear 1s infinite;
-    animation: flash linear 1s infinite;
-}
-@-webkit-keyframes flash {
-	0% { opacity: 1; } 
-	50% { opacity: .1; } 
-	100% { opacity: 1; }
-}
-@keyframes flash {
-	0% { opacity: 1; } 
-	50% { opacity: .1; } 
-	100% { opacity: 1; }
+.message-text {
+    font-family: sans-serif;
+    line-height: 1.5em;
 }

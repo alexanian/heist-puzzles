@@ -30,6 +30,7 @@ A puzzle for those who have always wanted to "hack the mainframe" to disable a "
 * For develop, `python server.py` (with venv enabled) will do ya
 * To see it beyond your local machine, you're going to want to change the IP in Config.Server to
   0.0.0.0
+* You will need to change the camera IPs in `Config/Cameras.py`
 * I think debug mode messes up the challenge somehow, so I also recommend turning debug=False
   for actually running this. You can do that in `server.py`
 
@@ -47,7 +48,6 @@ in the app, henceforth referred to as `YOUR_CAMERA_IP`.
 
 The BL-IP app makes available its current frame at `<YOUR_CAMERA_IP>/camera.jpg`. Test audio and
 video streams can be viewed at `http://<YOUR_CAMERA_IP>/jpeg-browser.html`.
-
 
 ### Accessing the server
 You can see the login page at `localhost:8080/login`. To access the feeds, enter the username and

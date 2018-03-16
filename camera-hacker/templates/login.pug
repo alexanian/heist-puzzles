@@ -2,25 +2,31 @@ extends header
 
 block content
     script(src="{{ url_for('static', filename='controllers/login.js') }}")
-    div(ng-controller="login")
+    div(ng-controller="login"
+        id="container")
+        h2 Panopticon Surveillance
+        img(src="{{ url_for('static', filename='logo.png') }}"
+            class="logo")
         h1 Login
 
-        form(style="display:flex;justify-content:space-between;flex-wrap:wrap;flex-direction:column;max-width:300px;mix-height:200px;")
-            label(for='uname') Username
-            input(type="text"
-                id="uname"
-                ng-model="formData.user"
-                placeholder="Please enter name")
+        form
+            p
+                label(for='uname') Username
+                input(type="text"
+                    id="uname"
+                    ng-model="formData.user"
+                    placeholder="Please enter name")
 
-            label(for='passwd') Password
-            input(type="password"
-                id="passwd"
-                ng-model="formData.password"
-                placeholder="Please enter password")
+            p
+                label(for='passwd') Password
+                input(type="password"
+                    id="passwd"
+                    ng-model="formData.password"
+                    placeholder="Please enter password")
 
-            button(type="submit" ng-click="login()"
-                style="max-width:60px;margin-top:24px") Login
-        p(ng-if="error") {!error!}
+            p
+                button(type="submit" ng-click="login()") Login
+            p(ng-if="error") {!error!}
 
-        p
+        p(class="info")
             a(href="/feedback") Provide Feedback
