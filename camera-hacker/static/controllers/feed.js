@@ -3,6 +3,7 @@ app.controller('feed', ['$scope', '$http', '$interval', function($scope, $http, 
     var cameraStates = {
         all: true
     };
+    var correctIPs = [];
 
     function reloadImage(imageId) {
         var img = document.getElementById(imageId);
@@ -10,6 +11,14 @@ app.controller('feed', ['$scope', '$http', '$interval', function($scope, $http, 
         // True when image has loaded
         if (img.complete) {
             var src = img.src;
+
+            if (src.indexOf('http://') >= 0 && src.indexOf('camera') >= 0) {
+                src = src.split('/camera.jpg')[0];
+                src = src.split('http://')[1];
+                src = src.split(':').join('-');
+                src = '/api/feeds/' + src;
+                correctIPs.push([src, imageId]);
+            }
 
             // Remove existing query arguments from source
             var queryPos = src.indexOf('?');
@@ -34,6 +43,22 @@ app.controller('feed', ['$scope', '$http', '$interval', function($scope, $http, 
             }, 5000);
         }
     };
+
+    // sometimes it breaks and this might fix it
+    $interval(function checkImages() {
+        if (cameraStates.all) {
+            correctIPs.forEach(function reload(ip) {
+                var src = ip[0];
+                var id = ip[1];
+
+                var img = document.getElementById(id);
+
+                if (img.complete) {
+                    img.src = src + '?time=' + new Date().getTime();
+                }
+            });
+        }
+    }, 1333);
 
     $interval(function checkGlobalState() {
         $http.get('/api/cameras').then(function (data) {
