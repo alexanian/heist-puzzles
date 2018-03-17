@@ -6,7 +6,8 @@ var secondsSinceAlert = 0;
 var inAlertMode = true;
 
 // accessToken should be includes in secrets.js, which is not versioned
-var deviceURL = "https://api.spark.io/v1/devices/" + deviceId + "/";
+var pressureTrapURL = "https://api.spark.io/v1/devices/" + pressureTrapDeviceId + "/";
+var laserMazeURL = "https://api.spark.io/v1/devices/" + laserMazeDeviceId + "/";
 var eventsURL = "https://api.spark.io/v1/devices/events/?access_token=" + accessToken;
 
 // Begin monitoring the event sources and updating the timespace
@@ -14,8 +15,12 @@ $(document).ready( function() {
 
     // Set up events
     var eventSource = new EventSource(eventsURL);
-    eventSource.addEventListener('alert', function (e) {
+    eventSource.addEventListener('alert-pressure-trap', function (e) {
         alert();
+    }, false);
+
+    eventSource.addEventListener('alert-laser-maze', function (e) {
+       alert();
     }, false);
 
     // Update the seconds since alert
@@ -31,7 +36,13 @@ $(document).ready( function() {
 function reset() {
     setActive();
 
-    $.post( deviceURL + "reset/?access_token=" + accessToken, function() {
+    $.post( pressureTrapURL + "reset/?access_token=" + accessToken, function() {
+        secondsSinceAlert = 0;
+        setTime();
+    });
+
+    $.post (laserMazeURL + "reset/?access_token=" + accessToken, function() {
+        // Only reset the page once both posts have succeeded
         var alertDiv = document.getElementById("alert-text");
         alertDiv.innerText = "No active alerts.";
         alertDiv.classList.remove("flashing");
