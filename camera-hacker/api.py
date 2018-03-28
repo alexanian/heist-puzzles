@@ -1,9 +1,12 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, send_file
 from json import loads
+from glob import glob
+from os import path
 
 from Config.Security import TOKEN, USER, PASSWD
 from Config.SharedState import VARIABLES
 from Config.Story import RESPONSES
+from get_images import convert_ip_to_safe
 
 API = Blueprint('api', __name__)
 
@@ -53,6 +56,14 @@ def feedback():
         return jsonify({"message": message}), 200
     else:
         return jsonify({"message": "Thank you for your feedback"}), 200
+
+
+@API.route('/feeds/<feed>')
+def get_last_image(feed):
+    file_base = convert_ip_to_safe(feed) + '*'
+    file_path = path.join('.', 'images', file_base)
+    f = sorted([f for f in glob(file_path)])[-1]
+    return send_file(f, mimetype='image/jpg')
 
 
 @API.route('/cameras', methods=["GET"])

@@ -44,6 +44,11 @@ Smartphones](https://www.makeuseof.com/tag/how-to-build-a-security-camera-networ
 We installed BL-IP on an old smartphone and it began streaming video to an IP address configured
 in the app, henceforth referred to as `YOUR_CAMERA_IP`.
 
+#### Starting the image gathering script
+Run (with venv activated) `python get_images.py` from the camera hacker directory. It needs valid
+IPs in the config, then will take care of saving them to the disk. The API will then retrieve them.
+This fixes a bug where two simaltaneous windows would break things. 
+
 #### Checking that the camera is streaming
 
 The BL-IP app makes available its current frame at `<YOUR_CAMERA_IP>/camera.jpg`. Test audio and
