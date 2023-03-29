@@ -4,7 +4,7 @@ Arduino-compatible microcontroller code for a laser harp, built for Heist 2023: 
 
 When a specific six-note sequence is played, the microcontroller activates a solenoid lock, unlocking a trapdoor.
 
-~~~~## Design & Components
+## Design & Components
 
 The laser harp in 2023 was constructed using the following components:
 
