@@ -1,6 +1,6 @@
 # Laser Harp
 
-Arduino-compatible microcontroller code for a laser harp, built for Heist 2023: Sunlit Forge. The microcontroller reads values from 5 photoresistors; each photoresistor is aligned to a laser that functions as a harp string. When the string is "plucked", the laser's beam is interrupted, resulting in a lower voltage across the photoresistor. The microcontroller reads this and plays a corresponding MIDI note.
+Arduino-compatible microcontroller code for a laser harp, built for [Heist 2023: Sunlit Forge](https://www.welcometotheheist.com/sunlit_forge2). The microcontroller reads values from 5 photoresistors; each photoresistor is aligned to a laser that functions as a harp string. When the string is "plucked", the laser's beam is interrupted, resulting in a lower voltage across the photoresistor. The microcontroller reads this and plays a corresponding MIDI note.
 
 When a specific six-note sequence is played, the microcontroller activates a solenoid lock, unlocking a trapdoor.
 
